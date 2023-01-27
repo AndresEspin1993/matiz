@@ -1,0 +1,116 @@
+/*?  galeria */
+
+.gallery{
+    display: flex;
+    
+}
+
+.gallery .column{
+    flex: 30%;
+}
+
+.gallery .column .imgContainer{
+
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+.gallery .column .imgContainer:hover img{
+    transform: scale(1.1) ;
+    -webkit-transform: scale(1.1) ;
+    -moz-transform: scale(1.1) ;
+    -ms-transform: scale(1.1) ;
+    -o-transform: scale(1.1) ;
+}
+
+.gallery .column img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    
+
+}
+
+/** ESTILOS DE SCROLL BAR */
+body::-webkit-scrollbar{
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: rgb(32, 131, 201);
+}
+
+
+
+
+.grid-container{
+    width: 100%;
+    padding: 5px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(3, 210px);
+    grid-auto-rows: 210px;
+    grid-auto-flow: dense;
+}
+
+.item{
+    transition: all .3s;
+}
+
+.grid-container:hover .item{
+    opacity: 0.3;
+}
+
+.item:hover{
+    opacity: 1 !important;
+}
+
+
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.r-span2{
+    grid-row: span 2;
+}
+
+.c-span2{
+    grid-column: span 2;
+}
+
+
+@media screen and (min-width:1530px){
+
+ .grid-container{
+     /* acoplar a la pantalla */
+     grid-template-rows: auto;
+ }
+ .item:nth-child(6), .item:nth-child(7){
+     grid-column: auto !important;
+ }
+ 
+}
+
+@media screen and (max-width:1224px) and (min-width: 920px){
+
+.grid-container{
+/* acoplar a la pantalla */
+grid-template-rows: auto;
+}
+.item:nth-child(7){
+grid-column: auto !important;
+grid-row: span 2 !important;
+}
+
+}
